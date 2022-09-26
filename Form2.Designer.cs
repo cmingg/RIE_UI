@@ -39,6 +39,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.gas1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ratio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,12 +125,33 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gas1,
+            this.ratio});
+            this.dataGridView1.Enabled = false;
             this.dataGridView1.Location = new System.Drawing.Point(98, 269);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(266, 132);
+            this.dataGridView1.Size = new System.Drawing.Size(332, 132);
             this.dataGridView1.TabIndex = 7;
+            // 
+            // gas1
+            // 
+            this.gas1.HeaderText = "GAS";
+            this.gas1.MinimumWidth = 6;
+            this.gas1.Name = "gas1";
+            this.gas1.ReadOnly = true;
+            this.gas1.Width = 125;
+            // 
+            // ratio
+            // 
+            this.ratio.HeaderText = "ratio";
+            this.ratio.MinimumWidth = 6;
+            this.ratio.Name = "ratio";
+            this.ratio.ReadOnly = true;
+            this.ratio.Width = 125;
             // 
             // Form2
             // 
@@ -164,5 +187,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
         private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn gas1;
+        private DataGridViewTextBoxColumn ratio;
     }
 }

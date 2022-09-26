@@ -6,12 +6,31 @@ namespace RIE_UI
         {
             InitializeComponent();
         }
+        public double thickness;
+
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 F2 = new Form2();
-            F2.ShowDialog();
-            this.Close();
+            try
+            {
+                if (textBox1.Text == "")
+                {
+                    MessageBox.Show("두께 입력");
+                }
+                else
+                {
+                    Form2 F2 = new Form2(this);
+                    F2.ShowDialog();
+
+                    thickness = Convert.ToDouble(textBox1.Text);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                throw;
+            }
+            
         }
     }
 }
