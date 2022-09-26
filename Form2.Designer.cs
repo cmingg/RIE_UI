@@ -39,6 +39,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,9 +47,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(37, 66);
+            this.label1.Location = new System.Drawing.Point(41, 82);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 28);
+            this.label1.Size = new System.Drawing.Size(191, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "가스의 압력 (P) :";
             // 
@@ -56,9 +57,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(37, 133);
+            this.label2.Location = new System.Drawing.Point(41, 166);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(187, 28);
+            this.label2.Size = new System.Drawing.Size(222, 32);
             this.label2.TabIndex = 1;
             this.label2.Text = "공정 진행 시간 (T) :";
             // 
@@ -66,18 +67,19 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(37, 200);
+            this.label3.Location = new System.Drawing.Point(41, 250);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(119, 28);
+            this.label3.Size = new System.Drawing.Size(142, 32);
             this.label3.TabIndex = 2;
             this.label3.Text = "가스의 비율";
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(510, 377);
+            this.radioButton1.Location = new System.Drawing.Point(567, 471);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(53, 24);
+            this.radioButton1.Size = new System.Drawing.Size(65, 29);
             this.radioButton1.TabIndex = 3;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "ON";
@@ -86,9 +88,10 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(638, 377);
+            this.radioButton2.Location = new System.Drawing.Point(709, 471);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(56, 24);
+            this.radioButton2.Size = new System.Drawing.Size(69, 29);
             this.radioButton2.TabIndex = 4;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "OFF";
@@ -97,16 +100,18 @@
             // textBox1
             // 
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(242, 70);
+            this.textBox1.Location = new System.Drawing.Point(269, 88);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 27);
+            this.textBox1.Size = new System.Drawing.Size(146, 31);
             this.textBox1.TabIndex = 5;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(242, 137);
+            this.textBox2.Location = new System.Drawing.Point(269, 171);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(132, 27);
+            this.textBox2.Size = new System.Drawing.Size(146, 31);
             this.textBox2.TabIndex = 6;
             // 
             // timer1
@@ -123,18 +128,28 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(98, 269);
+            this.dataGridView1.Location = new System.Drawing.Point(109, 336);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(266, 132);
+            this.dataGridView1.Size = new System.Drawing.Size(296, 165);
             this.dataGridView1.TabIndex = 7;
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(803, 45);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(47, 363);
+            this.panel1.TabIndex = 8;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(889, 562);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -143,6 +158,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
@@ -164,5 +180,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
         private DataGridView dataGridView1;
+        private Panel panel1;
     }
 }
