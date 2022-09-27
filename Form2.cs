@@ -28,10 +28,6 @@ namespace RIE_UI
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            Thread thread = new Thread(worker);
-            isRunning = true;
-            thread.Start();
-
             //if (Form1.)
             //{
 
@@ -45,23 +41,8 @@ namespace RIE_UI
             {
                 //timer2.Start();
             }
-            if (timercount == 20)
-            {
-                isRunning = false;
-            }
         }
 
-        bool isRunning = false;
-        private void worker()
-        {
-            while(isRunning)
-            {
-                Thread.Sleep(1000);
-                Debug.WriteLine("Thread working...");
-                
-                textBox1.Invoke((MethodInvoker)delegate { textBox1.Text = "" + pressurecount++;  });
-            }
-        }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
@@ -69,10 +50,10 @@ namespace RIE_UI
             textBox1.Text = "" + pressurecount++;
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void pn_colormap_Paint(object sender, PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
-            DrawColorBar(graphics, 0, 0, panel1.Width, panel1.Height, colorMap, "Jet");
+            DrawColorBar(graphics, 0, 0, pn_colormap.Width, pn_colormap.Height, colorMap, "Jet");
         }
 
         private void DrawColorBar(Graphics graphics, int x, int y, int width, int height, ColorMap colorMap, string text)
@@ -112,6 +93,32 @@ namespace RIE_UI
                 );
 
                 graphics.FillRectangle(brush, x, y + i * deltaY, width, deltaY);
+            }
+        }
+
+        private void pn_wafer_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics graphics = e.Graphics;
+            Brush brush = Brushes.Silver;
+            Rectangle rect = new Rectangle(0, 0, pn_wafer.Width, pn_wafer.Height);
+            graphics.FillEllipse(brush, rect);
+            int width = pn_wafer.Width;     // wafer 그리기
+            int height = pn_wafer.Height;
+            int sx = (int)(width * 0.15);
+            int sy = (int)(height * 0.15);
+            Rectangle rect2 = new Rectangle(sx, sy, (int)(width * 0.7), (int)(height * 0.7));
+            graphics.DrawRectangle(Pens.Black, rect2);
+            // 
+            int xu = rect2.Width / 10;
+            int yu = rect2.Height / 10;
+            Pen pen = new Pen(Color.DarkGray, 1);
+            for (int x = 1; x < 10; x++)
+            {
+                graphics.DrawLine(pen, new Point(sx + x * xu, sy), new Point(sx + x * xu, sy + rect2.Height));
+            }
+            for (int y = 1; y < 10; y++)
+            {
+                graphics.DrawLine(pen, new Point(sx, sy + y * yu), new Point(sx + rect2.Width, sy + y * yu));
             }
         }
     }

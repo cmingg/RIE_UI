@@ -39,7 +39,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pn_colormap = new System.Windows.Forms.Panel();
+            this.pn_wafer = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,20 +137,30 @@
             this.dataGridView1.Size = new System.Drawing.Size(296, 165);
             this.dataGridView1.TabIndex = 7;
             // 
-            // panel1
+            // pn_colormap
             // 
-            this.panel1.Location = new System.Drawing.Point(803, 45);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(47, 363);
-            this.panel1.TabIndex = 8;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.pn_colormap.Location = new System.Drawing.Point(803, 45);
+            this.pn_colormap.Name = "pn_colormap";
+            this.pn_colormap.Size = new System.Drawing.Size(45, 315);
+            this.pn_colormap.TabIndex = 8;
+            this.pn_colormap.Paint += new System.Windows.Forms.PaintEventHandler(this.pn_colormap_Paint);
+            // 
+            // pn_wafer
+            // 
+            this.pn_wafer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pn_wafer.Location = new System.Drawing.Point(551, 102);
+            this.pn_wafer.Name = "pn_wafer";
+            this.pn_wafer.Size = new System.Drawing.Size(210, 210);
+            this.pn_wafer.TabIndex = 9;
+            this.pn_wafer.Paint += new System.Windows.Forms.PaintEventHandler(this.pn_wafer_Paint);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(889, 562);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pn_wafer);
+            this.Controls.Add(this.pn_colormap);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -180,6 +191,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
         private DataGridView dataGridView1;
-        private Panel panel1;
+        private Panel pn_colormap;
+        private Panel pn_wafer;
     }
 }
