@@ -41,6 +41,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.gas1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ratio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(37, 66);
+            this.label1.Location = new System.Drawing.Point(29, 95);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(160, 28);
             this.label1.TabIndex = 0;
@@ -58,7 +59,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(37, 133);
+            this.label2.Location = new System.Drawing.Point(29, 162);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(187, 28);
             this.label2.TabIndex = 1;
@@ -68,7 +69,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(37, 200);
+            this.label3.Location = new System.Drawing.Point(93, 222);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 28);
             this.label3.TabIndex = 2;
@@ -99,14 +100,14 @@
             // textBox1
             // 
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(242, 70);
+            this.textBox1.Location = new System.Drawing.Point(234, 99);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(132, 27);
             this.textBox1.TabIndex = 5;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(242, 137);
+            this.textBox2.Location = new System.Drawing.Point(234, 166);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(132, 27);
             this.textBox2.TabIndex = 6;
@@ -129,7 +130,7 @@
             this.gas1,
             this.ratio});
             this.dataGridView1.Enabled = false;
-            this.dataGridView1.Location = new System.Drawing.Point(98, 269);
+            this.dataGridView1.Location = new System.Drawing.Point(77, 269);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -153,11 +154,23 @@
             this.ratio.ReadOnly = true;
             this.ratio.Width = 125;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label4.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(288, 19);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 28);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "label4";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -189,5 +202,6 @@
         private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn gas1;
         private DataGridViewTextBoxColumn ratio;
+        private Label label4;
     }
 }

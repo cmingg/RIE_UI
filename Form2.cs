@@ -21,53 +21,82 @@ namespace RIE_UI
         {
             InitializeComponent();
             f1 = f;
+
         }
 
-        int timercount = 0;
-        int pressurecount = 300;
-        int speed;
+       double timercount = 0;
+        double pt;
 
-        public double process_time(double thickness)
+        public class items
+        {
+            public int pressure = 0;
+            public int speed = 0;
+
+            public items(int pressure, int speed)
+            {
+                this.pressure = pressure;
+                this.speed = speed;
+            }
+        }
+
+        public double process_time(double thickness, int speed)
         {
             double p_time;
-            p_time = (60 * thickness / speed);
+            p_time = (600 * thickness / speed);
             return p_time;
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            Thread thread = new Thread(worker);
-            isRunning = true;
-            thread.Start();
+            //Thread thread = new Thread(worker);
+            //isRunning = true;
+            //thread.Start();
+            int a, b;
 
-
-            if (f1.SI.Checked)
+            if (f1.SI.Checked) 
             {
                 dataGridView1.Rows.Add("O2", "5");
                 dataGridView1.Rows.Add("SF6", "50");
-                textBox1.Text = "10";
-                speed = 2200;
+                a = 10;
+                b = 22000;
             }
-            if (f1.SiO2.Checked)
+            else if (f1.SiO2.Checked)
             {
                 dataGridView1.Rows.Add("C4F8", "90");
                 dataGridView1.Rows.Add("SF6", "30");
-                textBox1.Text = "9";
-                speed = 150;
+                a = 9;
+                b = 450;
             }
-            if (f1.Si3N4.Checked)
+            else
             {
                 dataGridView1.Rows.Add("CF4", "50");
                 dataGridView1.Rows.Add("O2", "10");
-                textBox1.Text = "1";
-                speed = 200;
+                a = 1;
+                b = 4000;
             }
+            items it = new items(a,b);
+            textBox1.Text = it.pressure.ToString();
+            label4.ForeColor = Color.Red;
+            label4.Text = "공정 진행 중";
+
+            pt = process_time(Convert.ToDouble(f1.textBox1.Text), it.speed);
+
+           
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
-            while (true)
+            textBox2.Text = "" + timercount++;
+
+            if (pt<timercount)
             {
-                textBox2.Text = (timercount++).ToString();
+                label4.ForeColor = Color.Black;
+                label4.Text = "공정 가스 배출 중";
+            }
+            if (timercount > (pt + 180))
+            {
+                timer1.Enabled = false;
+
+                radioButton2.Checked = true;
             }
             //textBox2.Text = ""+timercount++;
 

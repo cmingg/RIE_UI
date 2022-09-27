@@ -21,8 +21,6 @@ namespace RIE_UI
                 {
                     Form2 F2 = new Form2(this);
                     F2.ShowDialog();
-
-                    thickness = Convert.ToDouble(textBox1.Text);
                 }
             }
             catch (Exception ex)
