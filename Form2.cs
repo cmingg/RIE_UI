@@ -25,6 +25,7 @@ namespace RIE_UI
 
         int timercount = 0;
         int pressurecount = 300;
+        int progress = 0;
 
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -36,10 +37,11 @@ namespace RIE_UI
         private void timer1_Tick(object sender, EventArgs e)
         {
             textBox2.Text = ""+timercount++;
-            pn_wafer.Refresh();
-            if (timercount == 5)
+            
+            if(progress < 9)
             {
-                //timer2.Start();
+                pn_wafer.Refresh();
+                progress++;
             }
         }
 
@@ -122,10 +124,45 @@ namespace RIE_UI
                 graphics.DrawLine(pen, new Point(sx, sy + y * yu), new Point(sx + rect2.Width, sy + y * yu));
             }
 
-            if(timercount <= 10)
+            Color color;
+            switch (progress)
             {
-                Color color = Color.FromArgb(timercount * 10, timercount * 10, timercount * 10, timercount * 10);
-                graphics.FillRectangle(new SolidBrush(color), rect2);
+                case 0: 
+                    color = Color.FromArgb(210, 0, 0, 200);
+                    graphics.FillRectangle(new SolidBrush(color), rect2);
+                    break;
+                case 1:
+                    color = Color.FromArgb(210, 0, 51, 255);
+                    graphics.FillRectangle(new SolidBrush(color), rect2);
+                    break;
+                case 2:
+                    color = Color.FromArgb(210, 0, 250, 250);
+                    graphics.FillRectangle(new SolidBrush(color), rect2);
+                    break;
+                case 3:
+                    color = Color.FromArgb(210, 0, 250, 200);
+                    graphics.FillRectangle(new SolidBrush(color), rect2);
+                    break;
+                case 4:
+                    color = Color.FromArgb(210, 0, 250, 0);
+                    graphics.FillRectangle(new SolidBrush(color), rect2);
+                    break;
+                case 5:
+                    color = Color.FromArgb(210, 250, 250, 0);
+                    graphics.FillRectangle(new SolidBrush(color), rect2);
+                    break;
+                case 6:
+                    color = Color.FromArgb(210, 250, 200, 0);
+                    graphics.FillRectangle(new SolidBrush(color), rect2);
+                    break;
+                case 7:
+                    color = Color.FromArgb(210, 250, 50, 0);
+                    graphics.FillRectangle(new SolidBrush(color), rect2);
+                    break;
+                case 8:
+                    color = Color.FromArgb(210, 200, 0, 0);
+                    graphics.FillRectangle(new SolidBrush(color), rect2);
+                    break;
             }
         }
     }
