@@ -36,7 +36,7 @@ namespace RIE_UI
         private void timer1_Tick(object sender, EventArgs e)
         {
             textBox2.Text = ""+timercount++;
-
+            pn_wafer.Refresh();
             if (timercount == 5)
             {
                 //timer2.Start();
@@ -96,22 +96,23 @@ namespace RIE_UI
             }
         }
 
-        private void pn_wafer_Paint(object sender, PaintEventArgs e)
+        private void pn_wafer_Paint(object sender, PaintEventArgs e)    // wafer 그리기
         {
             Graphics graphics = e.Graphics;
             Brush brush = Brushes.Silver;
             Rectangle rect = new Rectangle(0, 0, pn_wafer.Width, pn_wafer.Height);
             graphics.FillEllipse(brush, rect);
-            int width = pn_wafer.Width;     // wafer 그리기
+            int width = pn_wafer.Width;
             int height = pn_wafer.Height;
             int sx = (int)(width * 0.15);
             int sy = (int)(height * 0.15);
             Rectangle rect2 = new Rectangle(sx, sy, (int)(width * 0.7), (int)(height * 0.7));
             graphics.DrawRectangle(Pens.Black, rect2);
-            // 
+            
+            // Scribe Line 그리기
             int xu = rect2.Width / 10;
             int yu = rect2.Height / 10;
-            Pen pen = new Pen(Color.DarkGray, 1);
+            Pen pen = new Pen(Color.White, 1);
             for (int x = 1; x < 10; x++)
             {
                 graphics.DrawLine(pen, new Point(sx + x * xu, sy), new Point(sx + x * xu, sy + rect2.Height));
@@ -119,6 +120,12 @@ namespace RIE_UI
             for (int y = 1; y < 10; y++)
             {
                 graphics.DrawLine(pen, new Point(sx, sy + y * yu), new Point(sx + rect2.Width, sy + y * yu));
+            }
+
+            if(timercount <= 10)
+            {
+                Color color = Color.FromArgb(timercount * 10, timercount * 10, timercount * 10, timercount * 10);
+                graphics.FillRectangle(new SolidBrush(color), rect2);
             }
         }
     }

@@ -40,7 +40,8 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pn_colormap = new System.Windows.Forms.Panel();
-            this.pn_wafer = new System.Windows.Forms.Panel();
+            //this.pn_wafer = new System.Windows.Forms.Panel();
+            this.pn_wafer = new DPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
