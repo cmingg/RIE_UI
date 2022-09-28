@@ -24,7 +24,6 @@ namespace RIE_UI
         }
 
         int timercount = 0;
-        int pressurecount = 300;
         int progress = 0;
 
         private void Form2_Load(object sender, EventArgs e)
@@ -49,7 +48,6 @@ namespace RIE_UI
         private void timer2_Tick(object sender, EventArgs e)
         {
             Debug.WriteLine("timer2 tick event...");
-            textBox1.Text = "" + pressurecount++;
         }
 
         private void pn_colormap_Paint(object sender, PaintEventArgs e)
