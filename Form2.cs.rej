@@ -1,0 +1,10 @@
+diff a/Form2.cs b/Form2.cs	(rejected hunks)
+@@ -92,7 +92,7 @@
+                 label4.ForeColor = Color.Black;
+                 label4.Text = "공정 가스 배출 중";
+             }
+-            if (timercount > (pt + 180))
++            if (timercount > (pt + 5))
+             {
+                 timer1.Enabled = false;
+ 

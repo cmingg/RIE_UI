@@ -133,10 +133,10 @@
 
         private Label label1;
         private Label label2;
-        private RadioButton SI;
-        private RadioButton SiO2;
-        private TextBox textBox1;
         private Button button1;
-        private RadioButton Si3N4;
+        public RadioButton SI;
+        public RadioButton SiO2;
+        public RadioButton Si3N4;
+        public TextBox textBox1;
     }
 }
