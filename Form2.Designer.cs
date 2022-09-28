@@ -42,6 +42,8 @@
             this.gas1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ratio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
+            this.pn_wafer = new System.Windows.Forms.Panel();
+            this.pn_colormap = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,11 +167,29 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "label4";
             // 
+            // pn_wafer
+            // 
+            this.pn_wafer.Location = new System.Drawing.Point(454, 79);
+            this.pn_wafer.Name = "pn_wafer";
+            this.pn_wafer.Size = new System.Drawing.Size(250, 250);
+            this.pn_wafer.TabIndex = 9;
+            this.pn_wafer.Paint += new System.Windows.Forms.PaintEventHandler(this.pn_wafer_Paint);
+            // 
+            // pn_colormap
+            // 
+            this.pn_colormap.Location = new System.Drawing.Point(734, 95);
+            this.pn_colormap.Name = "pn_colormap";
+            this.pn_colormap.Size = new System.Drawing.Size(38, 250);
+            this.pn_colormap.TabIndex = 10;
+            this.pn_colormap.Paint += new System.Windows.Forms.PaintEventHandler(this.pn_colormap_Paint);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pn_colormap);
+            this.Controls.Add(this.pn_wafer);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox2);
@@ -203,5 +223,7 @@
         private DataGridViewTextBoxColumn gas1;
         private DataGridViewTextBoxColumn ratio;
         private Label label4;
+        private Panel pn_wafer;
+        private Panel pn_colormap;
     }
 }

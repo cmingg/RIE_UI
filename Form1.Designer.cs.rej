@@ -1,0 +1,14 @@
+diff a/Form1.Designer.cs b/Form1.Designer.cs	(rejected hunks)
+@@ -133,10 +133,10 @@
+ 
+         private Label label1;
+         private Label label2;
+-        private TextBox textBox1;
+         private Button button1;
+         public RadioButton SI;
+         public RadioButton SiO2;
+         public RadioButton Si3N4;
++        public TextBox textBox1;
+     }
+ }
+\ No newline at end of file
