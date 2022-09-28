@@ -44,6 +44,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.pn_wafer = new System.Windows.Forms.Panel();
             this.pn_colormap = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -183,11 +185,31 @@
             this.pn_colormap.TabIndex = 10;
             this.pn_colormap.Paint += new System.Windows.Forms.PaintEventHandler(this.pn_colormap_Paint);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(788, 95);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(30, 20);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "0%";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(788, 300);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 20);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "100%";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(855, 450);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.pn_colormap);
             this.Controls.Add(this.pn_wafer);
             this.Controls.Add(this.label4);
@@ -225,5 +247,7 @@
         private Label label4;
         private Panel pn_wafer;
         private Panel pn_colormap;
+        private Label label5;
+        private Label label6;
     }
 }

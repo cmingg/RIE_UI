@@ -14,7 +14,7 @@ using System.Diagnostics;
 
 namespace RIE_UI
 {
-    public partial class Form2 : Form
+    public partial class Form2 : MetroFramework.Forms.MetroForm
     {
         Form1 f1;
         ColorMap colorMap;
