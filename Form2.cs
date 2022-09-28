@@ -18,18 +18,18 @@ namespace RIE_UI
     {
         Form1 f1;
         ColorMap colorMap;
+        double timercount = 0;
+        double pt;
+        double progress ;
+
         public Form2(Form1 f)
         {
             InitializeComponent();
             f1 = f;
-
             colorMap = new ColorMap();
 
         }
 
-        double timercount = 0;
-        double pt;
-        int progress = 0;
 
         public class items
         {
@@ -91,16 +91,31 @@ namespace RIE_UI
         {
             textBox2.Text = "" + timercount++;
 
+            progress = timercount / (pt / 10);
+            Debug.WriteLine(pt /10);
+
             if (pt<timercount)
             {
-                label4.ForeColor = Color.Black;
+                label4.ForeColor = Color.Blue;
                 label4.Text = "공정 가스 배출 중";
             }
-            if (timercount > (pt + 180))
+            if (timercount > (pt + 5))
             {
+                label4.ForeColor = Color.Black;
+                label4.Text = "공정 종료";
                 timer1.Enabled = false;
 
                 radioButton2.Checked = true;
+
+                if (MessageBox.Show("공정 종료","종료창",MessageBoxButtons.OK)==DialogResult.OK)
+                {
+                    this.Close();
+                }
+            }
+
+            if (progress<9)
+            {
+                pn_wafer.Refresh();
             }
             //textBox2.Text = ""+timercount++;
 
@@ -114,7 +129,7 @@ namespace RIE_UI
             //}
         }
 
-        bool isRunning = false;
+        //bool isRunning = false;
         private void worker()
         {
             //while(isRunning)
@@ -159,44 +174,51 @@ namespace RIE_UI
             }
 
             Color color;
-            switch (progress)
+            if (progress < 1)
             {
-                case 0:
-                    color = Color.FromArgb(210, 0, 0, 200);
-                    graphics.FillRectangle(new SolidBrush(color), rect2);
-                    break;
-                case 1:
-                    color = Color.FromArgb(210, 0, 51, 255);
-                    graphics.FillRectangle(new SolidBrush(color), rect2);
-                    break;
-                case 2:
-                    color = Color.FromArgb(210, 0, 250, 250);
-                    graphics.FillRectangle(new SolidBrush(color), rect2);
-                    break;
-                case 3:
-                    color = Color.FromArgb(210, 0, 250, 200);
-                    graphics.FillRectangle(new SolidBrush(color), rect2);
-                    break;
-                case 4:
-                    color = Color.FromArgb(210, 0, 250, 0);
-                    graphics.FillRectangle(new SolidBrush(color), rect2);
-                    break;
-                case 5:
-                    color = Color.FromArgb(210, 250, 250, 0);
-                    graphics.FillRectangle(new SolidBrush(color), rect2);
-                    break;
-                case 6:
-                    color = Color.FromArgb(210, 250, 200, 0);
-                    graphics.FillRectangle(new SolidBrush(color), rect2);
-                    break;
-                case 7:
-                    color = Color.FromArgb(210, 250, 50, 0);
-                    graphics.FillRectangle(new SolidBrush(color), rect2);
-                    break;
-                case 8:
-                    color = Color.FromArgb(210, 200, 0, 0);
-                    graphics.FillRectangle(new SolidBrush(color), rect2);
-                    break;
+                color = Color.FromArgb(210, 0, 0, 200);
+                graphics.FillRectangle(new SolidBrush(color), rect2);
+
+            }
+            else if (progress < 2)
+            {
+                color = Color.FromArgb(210, 0, 51, 255);
+                graphics.FillRectangle(new SolidBrush(color), rect2);
+            }
+            else if (progress < 3)
+            {
+                color = Color.FromArgb(210, 0, 250, 250);
+                graphics.FillRectangle(new SolidBrush(color), rect2);
+            }
+            else if (progress < 4)
+            {
+                color = Color.FromArgb(210, 0, 250, 200);
+                graphics.FillRectangle(new SolidBrush(color), rect2);
+            }
+            else if (progress < 5)
+            {
+                color = Color.FromArgb(210, 0, 250, 0);
+                graphics.FillRectangle(new SolidBrush(color), rect2);
+            }
+            else if (progress < 6)
+            {
+                color = Color.FromArgb(210, 250, 250, 0);
+                graphics.FillRectangle(new SolidBrush(color), rect2);
+            }
+            else if (progress < 7)
+            {
+                color = Color.FromArgb(210, 250, 200, 0);
+                graphics.FillRectangle(new SolidBrush(color), rect2);
+            }
+            else if (progress < 8)
+            {
+                color = Color.FromArgb(210, 250, 50, 0);
+                graphics.FillRectangle(new SolidBrush(color), rect2);
+            }
+            else if (progress < 9)
+            {
+                color = Color.FromArgb(210, 200, 0, 0);
+                graphics.FillRectangle(new SolidBrush(color), rect2);
             }
         }
 
