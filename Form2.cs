@@ -82,6 +82,7 @@ namespace RIE_UI
             textBox1.Text = it.pressure.ToString();
             label4.ForeColor = Color.Red;
             label4.Text = "공정 진행 중";
+            radioButton1.Checked = true;
 
             pt = process_time(Convert.ToDouble(f1.textBox1.Text), it.speed);
 
@@ -92,7 +93,6 @@ namespace RIE_UI
             textBox2.Text = "" + timercount++;
 
             progress = timercount / (pt / 10);
-            Debug.WriteLine(pt /10);
 
             if (pt<timercount)
             {

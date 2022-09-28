@@ -11,24 +11,9 @@ namespace RIE_UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (textBox1.Text == "")
-                {
-                    MessageBox.Show("두께 입력");
-                }
-                else
-                {
-                    Form2 F2 = new Form2(this);
-                    F2.ShowDialog();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                throw;
-            }
-            
+            Form2 F2 = new Form2(this);
+            F2.ShowDialog();
+            this.Close();
         }
     }
 }
