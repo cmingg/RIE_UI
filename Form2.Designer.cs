@@ -38,9 +38,6 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.gas1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ratio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.pn_wafer = new System.Windows.Forms.Panel();
             this.pn_colormap = new System.Windows.Forms.Panel();
@@ -49,7 +46,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tp = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,7 +74,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(74, 239);
+            this.label3.Location = new System.Drawing.Point(74, 258);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 28);
             this.label3.TabIndex = 2;
@@ -110,16 +107,18 @@
             // textBox1
             // 
             this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox1.Location = new System.Drawing.Point(224, 114);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 27);
+            this.textBox1.Size = new System.Drawing.Size(132, 32);
             this.textBox1.TabIndex = 5;
             // 
             // textBox2
             // 
+            this.textBox2.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox2.Location = new System.Drawing.Point(224, 181);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(132, 27);
+            this.textBox2.Size = new System.Drawing.Size(132, 32);
             this.textBox2.TabIndex = 6;
             // 
             // timer1
@@ -132,37 +131,6 @@
             // 
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.gas1,
-            this.ratio});
-            this.dataGridView1.Enabled = false;
-            this.dataGridView1.Location = new System.Drawing.Point(43, 283);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(304, 120);
-            this.dataGridView1.TabIndex = 7;
-            // 
-            // gas1
-            // 
-            this.gas1.HeaderText = "GAS";
-            this.gas1.MinimumWidth = 6;
-            this.gas1.Name = "gas1";
-            this.gas1.ReadOnly = true;
-            this.gas1.Width = 125;
-            // 
-            // ratio
-            // 
-            this.ratio.HeaderText = "ratio";
-            this.ratio.MinimumWidth = 6;
-            this.ratio.Name = "ratio";
-            this.ratio.ReadOnly = true;
-            this.ratio.Width = 125;
             // 
             // label4
             // 
@@ -238,11 +206,29 @@
             this.label8.TabIndex = 15;
             this.label8.Text = "sec";
             // 
+            // tp
+            // 
+            this.tp.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tp.ColumnCount = 3;
+            this.tp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34F));
+            this.tp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.tp.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.tp.Enabled = false;
+            this.tp.Font = new System.Drawing.Font("맑은 고딕", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tp.Location = new System.Drawing.Point(47, 302);
+            this.tp.Name = "tp";
+            this.tp.RowCount = 2;
+            this.tp.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tp.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tp.Size = new System.Drawing.Size(309, 125);
+            this.tp.TabIndex = 16;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(855, 450);
+            this.Controls.Add(this.tp);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox1);
@@ -251,7 +237,6 @@
             this.Controls.Add(this.pn_colormap);
             this.Controls.Add(this.pn_wafer);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
@@ -260,7 +245,6 @@
             this.Name = "Form2";
             this.Text = "결과";
             this.Load += new System.EventHandler(this.Form2_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -279,9 +263,6 @@
         private TextBox textBox2;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn gas1;
-        private DataGridViewTextBoxColumn ratio;
         private Label label4;
         private Panel pn_wafer;
         private Panel pn_colormap;
@@ -290,5 +271,6 @@
         private GroupBox groupBox1;
         private Label label7;
         private Label label8;
+        private TableLayoutPanel tp;
     }
 }

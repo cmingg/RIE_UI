@@ -22,6 +22,10 @@ namespace RIE_UI
         double pt;
         double progress ;
 
+        string st_date;
+        string end_date;
+        string film_type;
+
         public Form2(Form1 f)
         {
             InitializeComponent();
@@ -52,31 +56,45 @@ namespace RIE_UI
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            DateTime dateTime = DateTime.Now;
+            st_date = dateTime.ToString();
+            Debug.WriteLine(st_date);
             //Thread thread = new Thread(worker);
             //isRunning = true;
             //thread.Start();
             int a, b;
+                tp.Controls.Add(new Label { Text = " Gas" }, 0, 0);
+                tp.Controls.Add(new Label { Text = " Ratio" }, 0, 1);
 
             if (f1.SI.Checked) 
             {
-                dataGridView1.Rows.Add("O2", "5");
-                dataGridView1.Rows.Add("SF6", "50");
+                tp.Controls.Add(new Label { Text = " O2" }, 1, 0);
+                tp.Controls.Add(new Label { Text = " SF6" }, 2, 0);
+                tp.Controls.Add(new Label { Text = " 5" }, 1, 1);
+                tp.Controls.Add(new Label { Text = " 50" }, 2, 1);
                 a = 10;
                 b = 22000;
+                film_type = f1.SI.Text;
             }
             else if (f1.SiO2.Checked)
             {
-                dataGridView1.Rows.Add("C4F8", "90");
-                dataGridView1.Rows.Add("SF6", "30");
+                tp.Controls.Add(new Label { Text = " C4F8" }, 1, 0);
+                tp.Controls.Add(new Label { Text = " SF6" }, 2, 0);
+                tp.Controls.Add(new Label { Text = " 90" }, 1, 1);
+                tp.Controls.Add(new Label { Text = " 30" }, 2, 1);
                 a = 9;
                 b = 450;
+                film_type = f1.SiO2.Text;
             }
             else
             {
-                dataGridView1.Rows.Add("CF4", "50");
-                dataGridView1.Rows.Add("O2", "10");
+                tp.Controls.Add(new Label { Text = " CF4" }, 1, 0);
+                tp.Controls.Add(new Label { Text = " O2" }, 2, 0);
+                tp.Controls.Add(new Label { Text = " 50" }, 1, 1);
+                tp.Controls.Add(new Label { Text = " 10" }, 2, 1);
                 a = 1;
                 b = 4000;
+                film_type = f1.Si3N4.Text;
             }
             items it = new items(a,b);
             textBox1.Text = it.pressure.ToString();
@@ -99,15 +117,41 @@ namespace RIE_UI
                 label4.ForeColor = Color.Blue;
                 label4.Text = "공정 가스 배출 중";
             }
-            if (timercount > (pt + 5))
+            if (timercount > (pt + 180))
             {
                 label4.ForeColor = Color.Black;
                 label4.Text = "공정 종료";
                 timer1.Enabled = false;
 
                 radioButton2.Checked = true;
+                DateTime dateTime = DateTime.Now;
+                end_date = dateTime.ToString();
+                Debug.WriteLine(end_date);
 
-                if (MessageBox.Show("공정 종료","종료창",MessageBoxButtons.OK)==DialogResult.OK)
+                if (MessageBox.Show("Save date?","종료창",MessageBoxButtons.YesNo)==DialogResult.Yes)
+                {
+                    string localpath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                    Debug.WriteLine(localpath);
+                    string file_name = DateTime.Now.ToString("MM_dd")+".csv";
+                    string file_path = localpath+"\\" + file_name;
+                    Debug.WriteLine(file_path);
+                    FileInfo fi_in = new FileInfo(file_path);
+                    if (fi_in.Exists)
+                    {
+                        StreamWriter fi = File.AppendText(file_path);
+                        fi.WriteLine("{0},{1},{2},{3},{4}", st_date, end_date, textBox2.Text, film_type, f1.textBox1.Text);
+                        fi.Close();
+                    }
+                    else
+                    {
+                        StreamWriter fi = new StreamWriter(new FileStream(file_path, FileMode.OpenOrCreate));
+                        fi.WriteLine("start time, end time, time taken(s), film type, film thickness(nm)");
+                        fi.WriteLine("{0},{1},{2},{3},{4}", st_date, end_date, textBox2.Text, film_type, f1.textBox1.Text);
+                        fi.Close();
+                    }
+                    this.Close();
+                }
+                else
                 {
                     this.Close();
                 }
