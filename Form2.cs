@@ -25,6 +25,7 @@ namespace RIE_UI
         string st_date;
         string end_date;
         string film_type;
+        int gas_time=5;
 
         public Form2(Form1 f)
         {
@@ -57,7 +58,7 @@ namespace RIE_UI
         private void Form2_Load(object sender, EventArgs e)
         {
             DateTime dateTime = DateTime.Now;
-            st_date = dateTime.ToString();
+            st_date = dateTime.ToString("HH:mm:ss");
             Debug.WriteLine(st_date);
             //Thread thread = new Thread(worker);
             //isRunning = true;
@@ -117,7 +118,7 @@ namespace RIE_UI
                 label4.ForeColor = Color.Blue;
                 label4.Text = "공정 가스 배출 중";
             }
-            if (timercount > (pt + 180))
+            if (timercount > (pt + gas_time))
             {
                 label4.ForeColor = Color.Black;
                 label4.Text = "공정 종료";
@@ -125,10 +126,10 @@ namespace RIE_UI
 
                 radioButton2.Checked = true;
                 DateTime dateTime = DateTime.Now;
-                end_date = dateTime.ToString();
+                end_date = dateTime.ToString("HH:mm:ss");
                 Debug.WriteLine(end_date);
 
-                if (MessageBox.Show("Save date?","종료창",MessageBoxButtons.YesNo)==DialogResult.Yes)
+                if (MessageBox.Show("Save data?","종료창",MessageBoxButtons.YesNo)==DialogResult.Yes)
                 {
                     string localpath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                     Debug.WriteLine(localpath);
@@ -145,7 +146,7 @@ namespace RIE_UI
                     else
                     {
                         StreamWriter fi = new StreamWriter(new FileStream(file_path, FileMode.OpenOrCreate));
-                        fi.WriteLine("start time, end time, time taken(s), film type, film thickness(nm)");
+                        fi.WriteLine("Start time, End time, Process time(s), film type, film thickness(nm)");
                         fi.WriteLine("{0},{1},{2},{3},{4}", st_date, end_date, textBox2.Text, film_type, f1.textBox1.Text);
                         fi.Close();
                     }
